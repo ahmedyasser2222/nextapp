@@ -4,7 +4,7 @@ import Image from "next/image";
 import { notFound } from 'next/navigation';
 
 async function getData(id) {
-  const res = await fetch(`${process.env.DOMAN}/api/posts/${id}`,
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`,
   { next: { revalidate: 10 } }
   );
 
@@ -21,7 +21,7 @@ export async function generateMetadata({params}){
   return {
     title : item.title,
     icons: {
-      icon: item.image,
+      icon: "https://images.pexels.com/photos/3130810/pexels-photo-3130810.jpeg",
     },
   }
 
@@ -40,7 +40,7 @@ const BlogPost = async ({params}) => {
           </p>
           <div className={styles.author}>
             <Image
-              src={data.image}
+              src={"https://images.pexels.com/photos/3130810/pexels-photo-3130810.jpeg"}
               alt=""
               width={40}
               height={40}
